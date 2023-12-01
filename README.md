@@ -12,3 +12,41 @@ Creating a trajectory from the start point to the end point, in an environment w
 - Replanning ścieżki od miejsca kolizji na trajektorii.
 - Tworzenie przestrzeni do sprawdzania kolizji (np. octomap).
 - Planowanie ścieżki bez kolizji od punktu A do B.
+
+**To Do: A* 2D**
+
+- * Point2D struct ( read from file ) : *
+``cpp
+  struct Point2D {
+    double x,y;
+    Point2D( double x, double y) : x(x), y(y) {}
+  }
+``
+  
+- *Function to calculate movement costs between two points:* 
+  ``cpp
+  double calculateCost(Point2D from, Point2D to);
+  ``
+- *Function to calculate heuristics (e.g., Euclidean distance) between a given point and the goal:*
+  ``cpp
+  double calculateHeuristic(Point2D current, Point2D goal);
+ ``
+- *Function to check the validity of points in space (whether a point is accessible for movement):*
+  ``cpp
+  bool isValidPoint(Point2D point);
+  ``
+- *Function to return information about visited nodes:*
+  ``cpp
+  vector<Point2D> getVisitedNodes();
+  ``
+- *Set / Get*
+    - ``cpp void setCostFactors(double movementCost, double heuristicWeight); ``
+    - ``cpp double getMovementCost(); ``
+    - ``cpp double getHeuristicWeight(); ``
+- *Path Finding Algorithm: *
+  ``cpp
+  vector<Point2D> findPath(Point2D start, Point2D goal);
+  ``
+   
+  
+    
