@@ -53,6 +53,26 @@ Creating a trajectory from the start point to the end point, in an environment w
   ```cpp
   vector<Point2D> findPath(Point2D start, Point2D goal);
   ```
-   
-  
+
+# Documentation
+
+## `double A_star_2D::calculateHeuristic(Point2D current, Point2D goal)`
+
+This function calculates the heuristic value (estimated cost) using the Euclidean distance between the current point and the goal point in a two-dimensional space.
+
+### Parameters:
+- `current`: The current point in the 2D space.
+- `goal`: The goal point to which the algorithm is navigating.
+
+### Return Value:
+- Returns a `double` representing the Euclidean distance between the current point and the goal.
+
+### Example Usage:
+```cpp
+A_star_2D astar;
+Point2D currentPoint(1.0, 2.0);
+Point2D goalPoint(5.0, 6.0);
+double heuristicValue = astar.calculateHeuristic(currentPoint, goalPoint);
+```
+
     

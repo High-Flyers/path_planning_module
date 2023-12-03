@@ -16,6 +16,7 @@ public:
 
 	A_star_2D(string map_file);
 	void show_map();
-	
+
+    double calculateHeuristic(Point2D current, Point2D goal);
 };
 

@@ -41,3 +41,9 @@ void A_star_2D::show_map()
 		cout << '\n';
 	}
 }
+
+double A_star_2D::calculateHeuristic(Point2D current, Point2D goal) {
+    double dx = goal.x - current.x;
+    double dy = goal.y - current.y;
+    return sqrt(dx * dx + dy * dy);
+}
