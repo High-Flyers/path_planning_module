@@ -47,3 +47,8 @@ double A_star_2D::calculateHeuristic(Point2D current, Point2D goal) {
     double dy = goal.y - current.y;
     return sqrt(dx * dx + dy * dy);
 }
+
+void A_star_2D::setCostFactors(double movementCost, double heuristicWeight) {
+    this->movementCost = movementCost;
+    this->heuristicWeight = heuristicWeight;
+}

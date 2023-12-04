@@ -75,4 +75,26 @@ Point2D goalPoint(5.0, 6.0);
 double heuristicValue = astar.calculateHeuristic(currentPoint, goalPoint);
 ```
 
-    
+## `void A_star_2D::setCostFactors(double movementCost, double heuristicWeight)`
+
+This function allows the adjustment of key parameters in the A* algorithm related to movement costs and heuristic weight.
+
+### Parameters:
+- `movementCost`: The cost associated with moving from one point to an adjacent point in the 2D space. It influences the pathfinding algorithm by determining the cost of transitions between points.
+- `heuristicWeight`: The weight assigned to the heuristic function. It affects how much the estimated cost (heuristic) influences the choice of the next point during the pathfinding process.
+
+### Usage:
+```cpp
+A_star_2D astar;
+astar.setCostFactors(1.5, 2.0);
+```
+
+### Example Explanation:
+
+In the example above, the setCostFactors function is used to set the movement cost to 1.5 and the heuristic weight to 2.0.
+Adjusting these parameters can impact the behavior of the A* algorithm, allowing flexibility in adapting the algorithm to different scenarios.
+
+### Notes:
+
+The movementCost and heuristicWeight parameters should be positive values.
+Experimentation with different parameter values may be necessary to find the most suitable configuration for a specific use case.
