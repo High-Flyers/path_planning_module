@@ -98,3 +98,29 @@ Adjusting these parameters can impact the behavior of the A* algorithm, allowing
 
 The movementCost and heuristicWeight parameters should be positive values.
 Experimentation with different parameter values may be necessary to find the most suitable configuration for a specific use case.
+
+## `double A_star_2D::getMovementCost()`
+
+This function retrieves the current movement cost value set for the A* algorithm.
+
+### Return Value:
+- Returns a `double` representing the current movement cost.
+
+### Usage:
+```cpp
+A_star_2D astar;
+double currentMovementCost = astar.getMovementCost();
+```
+
+## `double A_star_2D::getHeuristicWeight()`
+
+This function retrieves the current heuristic weight value set for the A* algorithm.
+
+### Return Value:
+- Returns a `double` representing the current heuristic weight.
+
+### Usage:
+```cpp
+A_star_2D astar;
+double currentHeuristicWeight = astar.getHeuristicWeight();
+```

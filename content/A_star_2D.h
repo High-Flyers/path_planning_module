@@ -24,6 +24,10 @@ public:
 	void show_map();
 
     double calculateHeuristic(Point2D current, Point2D goal);
+
     void setCostFactors(double movementCost, double heuristicWeight);
+    double getMovementCost();
+    double getHeuristicWeight();
+
 };
 

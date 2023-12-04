@@ -52,3 +52,11 @@ void A_star_2D::setCostFactors(double movementCost, double heuristicWeight) {
     this->movementCost = movementCost;
     this->heuristicWeight = heuristicWeight;
 }
+
+double A_star_2D::getMovementCost() {
+    return movementCost;
+}
+
+double A_star_2D::getHeuristicWeight() {
+    return heuristicWeight;
+}
