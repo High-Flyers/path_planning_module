@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -41,3 +42,40 @@ void A_star_2D::show_map()
 		cout << '\n';
 	}
 }
+
+double A_star_2D::calculateCost(Point2D from, Point2D to)
+{
+	double dist{};
+	double deltaX = fabs(to.x - from.x), deltaY = fabs(to.y - from.y);
+
+	if (from.x == to.x)
+		dist = deltaY;
+	else if (from.y == to.y)
+		dist = deltaX;	
+	else if (deltaX > deltaY)
+	{
+		dist += deltaX - deltaY;
+		dist += sqrt(2 * pow(deltaY, 2));
+	}
+	else
+	{
+		dist += deltaY - deltaX;	
+		dist += sqrt(2 * pow(deltaX, 2));
+	}
+	return dist;
+}
+
+bool A_star_2D::isValid(Point2D point)
+{
+	return bool(point.access);
+}
+
+unordered_map <string,Point2D> A_star_2D::getVisitedNodes()
+{
+	return VisitedNodes;
+}
+
+
+
+
+
