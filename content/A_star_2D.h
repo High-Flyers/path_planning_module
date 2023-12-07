@@ -5,29 +5,30 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <unordered_map>
+
+#include "Point2d.h"
 
 using namespace std;
-
-struct Point2D {
-    double x,y;
-    Point2D( double x, double y) : x(x), y(y) {}
-}
 
 class A_star_2D
 {
 	vector<Point2D> map;
-    double movementCost;
-    double heuristicWeight;
+	unordered_map<string, Point2D> VisitedNodes;
+	double movementCost;
+  double heuristicWeight;   
+
 public:
 
 	A_star_2D(string map_file);
 	void show_map();
+	double calculateCost(Point2D from, Point2D to);
+	bool isValid(Point2D point);
+	unordered_map<string, Point2D> getVisitedNodes();
+  double calculateHeuristic(Point2D current, Point2D goal);
 
-    double calculateHeuristic(Point2D current, Point2D goal);
-
-    void setCostFactors(double movementCost, double heuristicWeight);
-    double getMovementCost();
-    double getHeuristicWeight();
-
+  void setCostFactors(double movementCost, double heuristicWeight);
+  double getMovementCost();
+  double getHeuristicWeight();
 };
 
