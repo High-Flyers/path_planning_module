@@ -14,6 +14,7 @@ int main()
 	A_star_2D object("map.txt");
 	object.show_map();
 	Point2D from(1, 5), to(4, 1);
-	double dist = object.calculateCost(from, to);
+	double dist = object.calculateMovement(from, to);
 	cout << '\n' << dist;
+	object.pathPlanner({1,5}, { 4,1 });
 }

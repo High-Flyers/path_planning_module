@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <unordered_map>
+#include <deque>
 
 #include "Point2d.h"
 
@@ -13,22 +14,33 @@ using namespace std;
 
 class A_star_2D
 {
-	vector<Point2D> map;
-	unordered_map<string, Point2D> VisitedNodes;
+	vector<vector<double>> map;
+	unordered_map<string,Point2D> openNodes;
+	unordered_map<string,Point2D> visitedNodes;
 	double movementCost;
-  double heuristicWeight;   
+	double heuristicCost;  
+	vector<coords> neighbourhood;
 
 public:
 
 	A_star_2D(string map_file);
-	void show_map();
-	double calculateCost(Point2D from, Point2D to);
-	bool isValid(Point2D point);
-	unordered_map<string, Point2D> getVisitedNodes();
-  double calculateHeuristic(Point2D current, Point2D goal);
 
-  void setCostFactors(double movementCost, double heuristicWeight);
-  double getMovementCost();
-  double getHeuristicWeight();
+	unordered_map<string, Point2D> getVisitedNodes();
+
+	void show_map();
+	bool isValid(Point2D point);
+	Point2D startValidation(coords point);
+	void setCostFactors(double movementCost, double heuristicCost);
+	double getMovementCost();
+	double getHeuristicCost();
+	string getOptimalNodeIndex();
+	double calculateFullCost(Point2D start, Point2D current, Point2D goal);
+	double calculateMovement(Point2D start, Point2D current);
+	double calculateHeuristic(Point2D current, Point2D goal);
+	string getCoordsInString(Point2D point);
+	string getCoordsInString(coords point);
+	coords getCoords(Point2D point);
+	deque<coords> pathPlanner(coords startCoords, coords finishCoords);
+
 };
 
